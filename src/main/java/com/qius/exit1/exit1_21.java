@@ -5,9 +5,6 @@ package com.qius.exit1;
  */
 public class exit1_21 {
     public static void main(String[] args) {
-        // 测试改进后的average方法
-        System.out.println("问题21：改进average方法，以便至少通过一个参数来调用它。");
-        System.out.println("--------------------------------------------------------------");
         
         // 测试不同参数数量的情况
         System.out.println("测试一个参数: average(10) = " + average(10));
@@ -68,7 +65,7 @@ public class exit1_21 {
     /**
      * 计算double类型参数的平均值
      * 使用可变参数允许任意数量的参数
-     * 
+     *
      * @param numbers 一个或多个double类型参数
      * @return 参数的平均值
      * @throws IllegalArgumentException 如果没有提供参数

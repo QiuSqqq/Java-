@@ -56,9 +56,10 @@ public class exit1_9 {
         System.out.println("combined1.equals(literal): " + combined1.equals(literal));     // true
         
         // 结论
-        System.out.println("\n结论：");
-        System.out.println("1. 使用==或!=比较字符串时，比较的是对象引用（内存地址），而不是字符串内容");
-        System.out.println("2. 即使两个字符串内容完全相同，它们可能是不同的对象，此时==会返回false");
-        System.out.println("3. 应该始终使用equals方法比较字符串内容，而不是使用==或!=");
+        /*
+        1. 使用==或!=比较字符串时，比较的是对象引用（内存地址），而不是字符串内容
+        2. 即使两个字符串内容完全相同，它们可能是不同的对象，此时==会返回false"
+        3. 应该始终使用equals方法比较字符串内容，而不是使用==或!=
+         */
     }
 } 
