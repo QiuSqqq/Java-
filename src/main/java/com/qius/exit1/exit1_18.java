@@ -1,13 +1,27 @@
-package com.qius.exit1; /**
+package com.qius.exit1;
+
+/**
  * 问题18：编写一个程序，打印一组彩票号码，选择1～49的6个不同的数字。为了选择6个不同的数
  * 字，请从填充由1到49的数组列表开始，然后随机选择一个索引并删除该元素。重复6次，最后
  * 按顺序打印结果。
+ * 
+ * 本程序展示了如何：
+ * 1. 使用ArrayList创建和管理动态数字池
+ * 2. 通过随机索引选择并删除元素来实现不重复抽样
+ * 3. 使用Collections.sort()对抽取的数字进行排序
+ * 4. 以格式化方式展示彩票号码
  */
 
 import java.util.*;
 
 public class exit1_18 {
     public static void main(String[] args) {
+        /**
+         * 初始化程序并创建用户交互界面
+         * - 创建Scanner对象读取用户输入
+         * - 显示程序说明
+         * - 设置循环生成多组彩票号码
+         */
         // 创建Scanner对象
         Scanner scanner = new Scanner(System.in);
         
@@ -17,6 +31,11 @@ public class exit1_18 {
         // 循环生成多组彩票号码
         boolean continueGenerating = true;
         while (continueGenerating) {
+            /**
+             * 生成并展示彩票号码
+             * - 调用generateLotteryNumbers方法获取一组彩票号码
+             * - 使用printLotteryNumbers方法格式化输出结果
+             */
             // 生成一组彩票号码
             List<Integer> lotteryNumbers = generateLotteryNumbers();
             
@@ -37,6 +56,9 @@ public class exit1_18 {
     
     /**
      * 生成一组彩票号码（6个从1到49的不同随机数）
+     * - 创建包含1-49的数字池
+     * - 随机选择并移除数字
+     * - 记录并展示选择过程
      * 
      * @return 包含6个不同随机数的列表
      */
@@ -91,6 +113,9 @@ public class exit1_18 {
     
     /**
      * 以格式化的方式打印彩票号码
+     * - 验证输入的有效性
+     * - 使用printf格式化输出
+     * - 添加适当的分隔符
      * 
      * @param numbers 要打印的彩票号码列表
      */

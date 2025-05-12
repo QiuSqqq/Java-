@@ -1,10 +1,16 @@
-package exit2;
+package com.qius.exit2;
 
 /**
  * 问题5：向Point记录添加translate和scale方法。translate方法将点沿x和y方向移动给定的量。
  * scale方法按给定因子缩放两个坐标。实现这些方法，注意让它们返回带有结果的新点。
  * 例如，Point p = new Point(3, 4).translate(1, 3).scale(0.5);
  * 以上语句的结果是将p设置为一个坐标为(2, 3.5)的点。
+ * 
+ * 本程序展示了如何：
+ * 1. 利用Java记录(record)创建不可变的点对象
+ * 2. 实现方法链式调用模式
+ * 3. 在不可变对象上实现变换操作（平移和缩放）
+ * 4. 利用不可变设计保证对象状态的一致性和线程安全
  */
 public class exit2_5 {
     public static void main(String[] args) {

@@ -1,5 +1,12 @@
-package com.qius.exit1; /**
+package com.qius.exit1;
+
+/**
  * 问题8：编写一个程序，读取字符串并打印其所有非空子串。
+ * 
+ * 本程序展示了如何：
+ * 1. 使用Scanner读取用户输入的字符串
+ * 2. 使用嵌套循环和String.substring()方法生成所有子串
+ * 3. 处理字符串子串的索引范围和计数
  */
 
 import java.util.Scanner;

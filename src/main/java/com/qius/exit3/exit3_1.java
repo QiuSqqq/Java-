@@ -5,9 +5,19 @@ import java.time.LocalDate;
 /**
  * 问题1：更改日历的打印程序，把星期天作为一周的第一天。
  * 在末尾打印一个换行符（但只能打印一个换行符）。
+ * 
+ * 本程序展示了如何：
+ * 1. 获取当前日期并找到当月第一天
+ * 2. 调整日历显示，使星期天成为一周的第一天
+ * 3. 打印格式化的日历，并确保末尾只有一个换行符
  */
 public class exit3_1 {
     public static void main(String[] args) {
+        /**
+         * 获取当前日期信息并计算当月第一天是星期几
+         * - 使用LocalDate获取日期信息
+         * - 调整星期计算，使星期天为一周的第一天
+         */
         // 获取当前日期
         LocalDate date = LocalDate.now();
         
@@ -22,12 +32,23 @@ public class exit3_1 {
         // 获取当月的总天数
         int daysInMonth = firstOfMonth.lengthOfMonth();
         
+        /**
+         * 打印日历表头信息
+         * - 显示当前月份和年份
+         * - 打印星期标题，从星期天开始
+         */
         // 打印月份和年份
         System.out.println(firstOfMonth.getMonth() + " " + firstOfMonth.getYear());
         
         // 打印星期几的标题，使星期天为第一天
         System.out.println("Sun Mon Tue Wed Thu Fri Sat");
         
+        /**
+         * 打印日历内容
+         * - 首先打印正确数量的前导空格
+         * - 按照格式打印每一天，并在适当位置换行
+         * - 确保末尾只有一个换行符
+         */
         // 打印前导空格
         for (int i = 0; i < dayOfWeek; i++) {
             System.out.print("    ");
@@ -47,12 +68,15 @@ public class exit3_1 {
             }
         }
         
+        /**
+         * 确保日历末尾只有一个换行符
+         * - 检查最后一天打印后是否已经有了换行符
+         * - 如果没有，则添加一个
+         */
         // 确保末尾只有一个换行符
         if ((dayOfWeek + daysInMonth - 1) % 7 != 6) {
             // 如果最后一天不是星期六，则需要额外添加一个换行符
             System.out.println();
         }
-        
-        // 由于之前的代码可能已经打印了换行符，所以这里不再打印额外的换行符
     }
 } 

@@ -1,4 +1,4 @@
-package exit3;
+package com.qius.exit3;
 
 /**
  * 问题5：向Point记录添加translate和scale方法。translate方法将点沿x和y方向移动给定的量。

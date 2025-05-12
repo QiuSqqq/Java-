@@ -1,16 +1,28 @@
-package com.qius.exit1; /**
+package com.qius.exit1;
+
+/**
  * 问题12：编写一个switch表达式，当给定一个指南针方向为"N""S""E"或"W"的字符串时，
  * 会生成一个x-偏移和y-偏移的数组。例如，"W"应生成 new int[] { -1, 0 }。
  * 
  * 注意：原题要求使用switch表达式，但为了兼容Java 14以下版本，
  * 这里使用传统的switch语句实现相同功能。
+ * 
+ * 本程序展示了如何：
+ * 1. 使用switch表达式处理字符串输入并返回对应的数组
+ * 2. 将指南针方向映射为二维坐标系统中的偏移量
+ * 3. 通过用户交互式界面演示switch表达式的使用
+ * 4. 使用Arrays.toString()格式化输出数组内容
  */
-
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class exit1_12 {
     public static void main(String[] args) {
+        /**
+         * 创建Scanner对象并显示程序说明
+         * - 解释程序的功能和用法
+         * - 说明各个方向对应的偏移量
+         */
         // 创建Scanner对象
         Scanner scanner = new Scanner(System.in);
         
@@ -21,6 +33,12 @@ public class exit1_12 {
         System.out.println("E: 东方 - 向右移动 (1, 0)");
         System.out.println("W: 西方 - 向左移动 (-1, 0)");
         
+        /**
+         * 主程序循环
+         * - 重复读取用户输入的方向
+         * - 使用switch表达式生成对应的偏移量数组
+         * - 提供退出程序的选项
+         */
         // 循环让用户输入方向
         boolean continueLoop = true;
         while (continueLoop) {
@@ -34,6 +52,11 @@ public class exit1_12 {
                 continue;
             }
             
+            /**
+             * 使用switch表达式处理方向输入
+             * - 根据不同方向返回相应的偏移量数组
+             * - 处理无效输入的情况
+             */
             // 使用传统的switch语句生成偏移量数组
             int[] offset = switch (direction) {
                 case "N" -> new int[] { 0, 1 };
@@ -49,6 +72,11 @@ public class exit1_12 {
                 System.out.println("方向 \"" + direction + "\" 对应的偏移量数组是: " + 
                                   Arrays.toString(offset));
                 
+                /**
+                 * 提供额外解释
+                 * - 说明每个方向对应的坐标变化
+                 * - 使用switch语句选择合适的解释文本
+                 */
                 // 解释结果
                 String explanation = "";
                 switch (direction) {

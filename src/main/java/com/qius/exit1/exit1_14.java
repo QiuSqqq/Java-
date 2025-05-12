@@ -3,33 +3,27 @@ package com.qius.exit1;
 /**
  * 问题14：能在switch语句中使用break而不使用直通吗？在switch表达式中呢？为什么？
  * 
- * 本程序将解释在switch语句和switch表达式中break的使用。
- * 
- * 1. 在传统的switch语句中：
- *    - 可以使用break而不使用直通(fall-through)
- *    - 在实际中，这是最常见的用法
- *    - break的作用是中断switch执行，防止直通到下一个case
- *    - 如果省略break，执行会"直通"到下一个case
- * 
- * 2. 在switch表达式中（Java 14及以上）：
- *    - 不能使用break
- *    - switch表达式必须产生一个值
- *    - 使用'->'语法时，每个case自动终止，不会直通
- *    - 使用传统的case:语法时，必须使用yield返回值，而不是break
- * 
- * 结论：
- * 1. 在传统的switch语句中，可以使用break而不使用直通，这是常见的做法。
- * 2. 在switch表达式中，使用->语法时不需要break，也不存在直通行为。
- * 3. 在switch表达式中，使用传统case:语法时需要使用yield来返回值，而不是break。
- * 4. break用于中断控制流，而yield用于提供返回值。
+ * 本程序展示了如何：
+ * 1. 比较传统switch语句中break的使用与直通(fall-through)行为
+ * 2. 展示Java 14引入的switch表达式的新语法特性
+ * 3. 解释switch表达式中yield关键字的使用方式和目的
+ * 4. 通过多个示例演示不同switch用法的优缺点
  */
 public class exit1_14 {
     public static void main(String[] args) {
+        /**
+         * 程序介绍
+         * - 说明程序目的
+         * - 建立问题背景
+         */
         System.out.println("问题14：在switch中使用break与直通的分析");
         System.out.println("-----------------------------------------------------------------");
         
         /**
          * 示例1：带break的switch语句
+         * - 展示传统switch语句的标准用法
+         * - 每个case后使用break防止直通
+         * - 演示控制流如何在匹配case后终止
          */
         String day = "星期三";
         System.out.println("\n示例1：带break的switch语句 (day = " + day + ")");
@@ -54,6 +48,9 @@ public class exit1_14 {
         
         /**
          * 示例2：不带break的switch语句（直通行为）
+         * - 展示省略break时的直通行为
+         * - 说明执行流程如何继续到后续case块
+         * - 突出这种用法的特殊性和潜在风险
          */
         System.out.println("\n示例2：不带break的switch语句（直通行为）");
         switch (day) {
@@ -76,6 +73,9 @@ public class exit1_14 {
         
         /**
          * 示例3：使用箭头语法的switch表达式
+         * - 展示Java 14引入的箭头语法
+         * - 演示表达式形式如何简化代码结构
+         * - 说明箭头语法如何自动防止直通
          */
         System.out.println("\n示例3：使用箭头语法的switch表达式");
         
@@ -92,6 +92,9 @@ public class exit1_14 {
         
         /**
          * 示例4：使用传统语法的switch表达式
+         * - 展示在表达式中使用传统case:语法
+         * - 演示yield用于返回值，取代break
+         * - 突出表达式必须产生值的特点
          */
         System.out.println("\n示例4：使用传统语法的switch表达式");
         
@@ -113,6 +116,9 @@ public class exit1_14 {
         
         /**
          * 示例5：使用带表达式的箭头语法
+         * - 展示如何返回不同类型的值
+         * - 演示表达式语法的灵活性
+         * - 说明类型推断如何工作
          */
         System.out.println("\n示例5：带表达式的箭头语法");
         int dayValue = switch (day) {
@@ -130,6 +136,9 @@ public class exit1_14 {
         
         /**
          * 示例6：使用多行代码块的箭头语法
+         * - 展示带代码块的箭头语法
+         * - 演示如何在代码块内执行多条语句
+         * - 说明如何在代码块中使用yield返回值
          */
         System.out.println("\n示例6：带代码块的箭头语法");
         String message = switch (day) {
@@ -149,11 +158,10 @@ public class exit1_14 {
         System.out.println("详细信息: " + message);
         
         /**
-         * 总结：
-         * 1. 在传统switch语句中，break用于防止直通行为，这是常见的用法
-         * 2. switch表达式使用->语法时，自动防止直通，不需要break
-         * 3. switch表达式使用传统case:语法时，使用yield返回值，而不是break
-         * 4. switch表达式总是要产生一个值，是表达式而非语句
+         * 总结部分
+         * - 对比不同switch使用方式的区别
+         * - 解释break和yield的不同用途
+         * - 强调switch表达式的语法改进
          */
         System.out.println("\n总结: 请查看源码注释获取完整解释");
     }

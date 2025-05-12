@@ -1,5 +1,13 @@
-package com.qius.exit1; /**
+package com.qius.exit1;
+
+/**
  * 问题20：编写一个程序，将给定n的一个帕斯卡三角形存储到ArrayList<ArrayList<Integer>>中。
+ * 
+ * 本程序展示了如何：
+ * 1. 使用嵌套ArrayList实现帕斯卡三角形的存储结构
+ * 2. 基于前一行计算当前行元素的递推关系实现
+ * 3. 格式化打印帕斯卡三角形（居中对齐）
+ * 4. 处理用户输入验证和异常情况
  */
 
 import java.util.ArrayList;
@@ -7,14 +15,14 @@ import java.util.Scanner;
 
 public class exit1_20 {
     public static void main(String[] args) {
+        /**
+         * 获取用户输入并验证
+         * - 创建Scanner对象读取控制台输入
+         * - 验证输入是否为合法整数
+         * - 检查输入范围是否在有效区间
+         */
         // 创建Scanner对象
         Scanner scanner = new Scanner(System.in);
-        
-        // 欢迎信息和说明
-        System.out.println("帕斯卡三角形生成器");
-        System.out.println("帕斯卡三角形是一种三角形数列，其中每个数等于它上方两个数之和。");
-        System.out.println("第一行总是1，第二行是1 1，然后每个数字等于上一行中相邻两个数字的和。");
-        
         // 循环，直到用户输入有效的n值
         int n;
         while (true) {
@@ -39,6 +47,12 @@ public class exit1_20 {
             }
         }
         
+        /**
+         * 生成并显示帕斯卡三角形
+         * - 调用生成方法创建三角形数据结构
+         * - 使用格式化方法打印三角形
+         * - 展示底层存储结构
+         */
         // 生成帕斯卡三角形
         ArrayList<ArrayList<Integer>> pascalTriangle = generatePascalTriangle(n);
         
@@ -56,6 +70,9 @@ public class exit1_20 {
     
     /**
      * 生成帕斯卡三角形并存储在嵌套的ArrayList中
+     * - 创建外层ArrayList存储每一行
+     * - 对每一行应用帕斯卡三角形的递推公式
+     * - 处理每行的首尾元素（均为1）和中间元素
      * 
      * @param n 要生成的帕斯卡三角形的行数
      * @return 包含帕斯卡三角形的嵌套ArrayList
@@ -95,6 +112,9 @@ public class exit1_20 {
     
     /**
      * 格式化打印帕斯卡三角形
+     * - 计算最大数字宽度以保持对齐
+     * - 为每行添加适当缩进使三角形居中
+     * - 格式化输出确保视觉上的三角形形状
      * 
      * @param triangle 包含帕斯卡三角形的嵌套ArrayList
      */
@@ -134,6 +154,9 @@ public class exit1_20 {
     
     /**
      * 打印帕斯卡三角形的存储结构
+     * - 以JSON类似格式显示嵌套ArrayList结构
+     * - 清晰展示每行的元素
+     * - 添加适当的分隔符使输出更易读
      * 
      * @param triangle 包含帕斯卡三角形的嵌套ArrayList
      */

@@ -15,15 +15,21 @@ import java.util.Scanner;
  * 1. 编写一个方法readValues，读取包含浮点数的文件
  * 2. 编写一个方法sumOfValues，调用readValues并返回文件中值的总和
  * 3. 编写一个程序，调用这些方法并处理异常
+ * 
+ * 本程序展示了如何：
+ * 1. 使用文件读取和异常处理机制处理外部文件数据
+ * 2. 实现数值解析和累加功能
+ * 3. 使用try-catch-finally结构处理各种可能的异常情况
+ * 4. 优雅地向用户提供错误反馈
  */
 public class exit5_1to3 {
     
     /**
      * 读取包含浮点数的文件并返回所有数值的列表
-     * @param filename 要读取的文件名
-     * @return 包含文件中所有浮点数的ArrayList
-     * @throws IOException 如果无法打开或读取文件
-     * @throws NumberFormatException 如果文件包含无法解析为浮点数的内容
+     * - 打开并读取指定的文件
+     * - 将每行内容解析为浮点数
+     * - 将所有有效的浮点数收集到ArrayList中
+     * - 提供详细的异常信息，包括行号
      */
     public static ArrayList<Double> readValues(String filename) throws IOException, NumberFormatException {
         ArrayList<Double> values = new ArrayList<>();
@@ -57,10 +63,9 @@ public class exit5_1to3 {
     
     /**
      * 计算文件中所有浮点数的总和
-     * @param filename 要读取的文件名
-     * @return 文件中所有浮点数的总和
-     * @throws IOException 如果无法打开或读取文件
-     * @throws NumberFormatException 如果文件包含无法解析为浮点数的内容
+     * - 调用readValues方法获取文件中的所有浮点数
+     * - 遍历列表计算总和
+     * - 传递可能出现的异常供上层处理
      */
     public static double sumOfValues(String filename) throws IOException, NumberFormatException {
         // 调用readValues方法获取值列表
@@ -76,12 +81,22 @@ public class exit5_1to3 {
     }
     
     public static void main(String[] args) {
+        /**
+         * 创建Scanner对象用于读取用户输入
+         * - 获取要处理的文件名
+         */
         Scanner scanner = new Scanner(System.in);
         
         System.out.println("=== 文件浮点数求和程序 ===");
         System.out.print("请输入要读取的文件名: ");
         String filename = scanner.nextLine();
         
+        /**
+         * 尝试计算文件中的浮点数总和并处理可能出现的异常
+         * - 调用sumOfValues和readValues方法完成主要功能
+         * - 捕获并处理各种可能的异常，提供友好的错误信息
+         * - 确保无论是否出现异常，都会释放Scanner资源
+         */
         try {
             // 调用sumOfValues方法计算总和
             double sum = sumOfValues(filename);
@@ -104,6 +119,7 @@ public class exit5_1to3 {
             System.err.println("错误: 文件格式不正确");
             System.err.println("详细信息: " + e.getMessage());
         } finally {
+            // 关闭Scanner，释放资源
             scanner.close();
         }
     }

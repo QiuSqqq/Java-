@@ -1,11 +1,23 @@
-package com.qius.exit1; /**
- * 问题11：编写一个程序，读取一行文本并打印所有非ASCII字符及其Unicode值。
- */
+package com.qius.exit1;
 
+/**
+ * 问题11：编写一个程序，读取一行文本并打印所有非ASCII字符及其Unicode值。
+ * 
+ * 本程序展示了如何：
+ * 1. 使用Scanner从控制台读取包含各种字符的文本
+ * 2. 检测并识别文本中的非ASCII字符
+ * 3. 输出非ASCII字符的Unicode十六进制值
+ * 4. 展示一些常见的非ASCII字符例子
+ */
 import java.util.Scanner;
 
 public class exit1_11 {
     public static void main(String[] args) {
+        /**
+         * 创建Scanner对象并读取用户输入的文本
+         * - 提示用户输入包含非ASCII字符的文本
+         * - 显示输入的原始文本
+         */
         // 创建Scanner对象
         Scanner scanner = new Scanner(System.in);
         
@@ -16,10 +28,21 @@ public class exit1_11 {
         // 打印输入的文本
         System.out.println("\n您输入的文本是：" + text);
         
+        /**
+         * 解释ASCII和Unicode的关系
+         * - 说明ASCII是Unicode的子集
+         * - 定义非ASCII字符的范围
+         */
         // 解释ASCII和Unicode
         System.out.println("\nASCII字符是Unicode的子集，范围是0-127（0x00-0x7F）。");
         System.out.println("任何大于127（0x7F）的Unicode值都是非ASCII字符。\n");
         
+        /**
+         * 遍历文本检测非ASCII字符
+         * - 检查每个字符的Unicode值是否大于127
+         * - 统计并显示非ASCII字符的信息
+         * - 提供字符位置、字符本身和Unicode十六进制值
+         */
         // 初始化计数器
         int nonAsciiCount = 0;
         
@@ -29,13 +52,10 @@ public class exit1_11 {
             char c = text.charAt(i);
             
             // 检查是否为非ASCII字符
-            // ASCII字符的范围是0-127
             if (c > 127) {
                 nonAsciiCount++;
                 
                 // 打印字符及其Unicode值
-                // Integer.toHexString将整数转换为十六进制字符串
-                // String.format格式化输出，%04X表示输出4位十六进制数（不足4位前面补0）
                 String unicodeValue = String.format("U+%04X", (int) c);
                 System.out.println("位置 " + i + ": 字符 '" + c + "' 的Unicode值是 " + unicodeValue);
             }
@@ -48,6 +68,11 @@ public class exit1_11 {
             System.out.println("\n总共找到 " + nonAsciiCount + " 个非ASCII字符。");
         }
         
+        /**
+         * 展示常见非ASCII字符示例
+         * - 显示不同语言和特殊符号的字符
+         * - 输出它们的Unicode十六进制值
+         */
         // 展示一些常见的非ASCII字符及其Unicode值
         System.out.println("\n一些常见的非ASCII字符及其Unicode值：");
         System.out.println("中文 '中': U+" + Integer.toHexString(Character.codePointAt("中", 0)).toUpperCase());

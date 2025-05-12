@@ -5,11 +5,15 @@ import java.util.ArrayList;
 /**
  * 问题3：是否可以让修改器方法返回除void以外的其他值？能让访问器方法返回void吗？
  * 尽可能举例说明。
+ * 
+ * 本程序展示了如何：
+ * 1. 实现并测试返回非void值的修改器方法
+ * 2. 分析Java标准库中返回非void的修改器方法
+ * 3. 探讨返回void的访问器方法的特殊情况
+ * 4. 比较不同方法设计的优缺点和应用场景
  */
 public class exit2_3 {
     public static void main(String[] args) {
-        System.out.println("问题3：修改器和访问器方法的返回值分析");
-        System.out.println("------------------------------------");
         
         // 创建示例对象
         Counter counter = new Counter();

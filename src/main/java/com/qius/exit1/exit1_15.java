@@ -1,13 +1,25 @@
-package com.qius.exit1; /**
+package com.qius.exit1;
+
+/**
  * 问题15：提出一个有用的场景，其中直通行为对于switch表达式或switch语句是有益的。大多数网络
  * 搜索的结果都是针对C或C++的示例，其中执行会从case A跳转到case B，而不执行任何操作。在
  * Java中，这样的操作并没有什么意义，因为可以直接使用case A, B。
+ * 
+ * 本程序展示了如何：
+ * 1. 使用switch语句中的直通行为来处理多个case共享相同代码的场景
+ * 2. 通过月份天数计算展示直通行为的实际应用
+ * 3. 使用状态机示例说明直通行为在连续状态转换中的优势
+ * 4. 比较Java中直通行为和现代switch表达式的不同用法
  */
-
 import java.util.Scanner;
 
 public class exit1_15 {
     public static void main(String[] args) {
+        /**
+         * 初始化Scanner对象并介绍问题
+         * - 创建用户输入接口
+         * - 解释switch中的直通行为概念
+         */
         // 创建Scanner对象
         Scanner scanner = new Scanner(System.in);
         
@@ -19,6 +31,12 @@ public class exit1_15 {
         System.out.println("执行完一个case后会继续执行下一个case的代码，而不是退出switch结构。");
         System.out.println();
         
+        /**
+         * 场景1：使用直通行为计算月份天数
+         * - 展示如何对具有相同天数的月份使用直通
+         * - 演示闰年判断逻辑
+         * - 提供交互式界面让用户输入月份和年份
+         */
         // 场景1：计算某月的天数
         System.out.println("有益场景1：计算月份的天数");
         System.out.println("在这个场景中，我们使用直通行为来处理具有相同天数的月份：");
@@ -83,6 +101,12 @@ public class exit1_15 {
             }
         }
         
+        /**
+         * 场景2：使用直通行为实现状态机
+         * - 说明状态机的基本概念
+         * - 展示如何使用直通行为执行连续的状态转换
+         * - 提供自动售货机作为具体实例
+         */
         // 场景2：状态机实现
         System.out.println("\n有益场景2：实现简单的状态机");
         System.out.println("直通行为在实现状态机时非常有用。例如，模拟一个简单的自动售货机状态：");
@@ -118,6 +142,12 @@ public class exit1_15 {
         System.out.println("\n这个例子中，直通行为使得状态可以连续转换，一次调用可能会触发多个状态的处理逻辑。");
         System.out.println("在实际状态机实现中，这样的设计可以减少重复代码和显式的状态转换调用。");
         
+        /**
+         * 总结直通行为的适用场景和注意事项
+         * - 列举直通行为的主要应用场景
+         * - 比较传统直通与现代Java语法的区别
+         * - 提供最佳实践建议
+         */
         System.out.println("\n结论：");
         System.out.println("1. 在Java中，直通行为主要用于具有共享代码的多个case，如第一个例子所示。");
         System.out.println("2. 在实现状态机或需要连续执行多个case的逻辑时，直通行为也很有用。");

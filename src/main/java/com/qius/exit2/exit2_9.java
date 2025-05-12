@@ -1,4 +1,4 @@
-package exit2;
+package com.qius.exit2;
 
 /**
  * 问题9：使用hour和minute组件实现一个TimeOfDay记录。将它们进行标准化处理，使小时介于0和23

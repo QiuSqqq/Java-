@@ -1,4 +1,4 @@
-package exit3;
+package com.qius.exit3;
 
 /**
  * 问题8：将javadoc注释添加到前面练习中两个版本的Point类中。
